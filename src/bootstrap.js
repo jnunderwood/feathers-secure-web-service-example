@@ -13,8 +13,12 @@ const User = app.service('/users');
 
 function loadData() {
   let p = sequelize.sync({ force: true });
-  p = p.then(Employee.create(employeeData));
-  p = p.then(User.create(userData));
+  p = p.then(function() {
+    return Employee.create(employeeData);
+  });
+  p = p.then(function() {
+    return User.create(userData);
+  });
   return p;
 }
 

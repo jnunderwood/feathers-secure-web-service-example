@@ -38,7 +38,9 @@ describe('Employee restful service', function () {
     this.server = app.listen(3030);               // start the server
     this.server.once('listening', function () {   // once listening do the following
       let p = bootstrap.init();                   // initialize data
-      p.then(requestToken(done));                 // request jwt
+      p.then(function() {
+        requestToken(done);                       // request jwt
+      });
     });
   });
 

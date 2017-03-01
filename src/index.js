@@ -8,5 +8,7 @@ const server = app.listen(port);
 
 server.on('listening', function() {
   var p = bootstrap.init();
-  p.then(app.logger.info(`Feathers application started on ${app.get('host')}:${port}`));
+  p.then(function() {
+    return app.logger.info(`Feathers application started on ${app.get('host')}:${port}`);
+  });
 });
