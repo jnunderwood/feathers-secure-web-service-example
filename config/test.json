@@ -1,0 +1,13 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "sqlite": "../data/test.sqlite",
+  "public": "../public/",
+  "auth": {
+    "secret": "w2U0GLz1VUR4aSk6O+B2lnNAlKT6l2htENWcR1uqifZnwC79HnbAe/qelYcojqvI0y+KBA6fDnRp+BMZl9eFJw==",
+    "local": {
+      // default is 'email'; must 'escape' username, otherwise it will be evaluated as an environment variable
+      "usernameField": "\\username"
+    }
+  }
+}
