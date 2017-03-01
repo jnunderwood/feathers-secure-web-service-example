@@ -1,11 +1,5 @@
 # Feathers Secure Web Service Example
 
-## NOTE
-
-This project is currently broken due to the face that I have not figured out how to 
-consistently load data successfully during `init()`, found in `src/bootstrap.js` and
-called by `src/index.js` and `test/services/employee/rest.test.js`. HELP!
-
 ## Description
 
 This is a simple example application that provides a web service with a RESTful API 
