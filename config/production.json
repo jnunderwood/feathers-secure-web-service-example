@@ -4,10 +4,10 @@
   "sqlite": "SQLITE_DB",
   "public": "../public/",
   "auth": {
-    "idField": "id",
-    "token": {
-      "secret": "FEATHERS_AUTH_SECRET"
-    },
-    "local": {}
+    "secret": "FEATHERS_AUTH_SECRET",
+    "local": {
+      // default is 'email'; must 'escape' username, otherwise it will be evaluated as an environment variable
+      "usernameField": "\\username"
+    }
   }
 }
