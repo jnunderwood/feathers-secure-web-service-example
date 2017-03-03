@@ -6,7 +6,7 @@ This is a simple example application that provides a web service with a RESTful 
 for listing and searching for employees in a database. The project has the following 
 characteristics:
 
-- Feathers: uses the [Feathers][1] v2.0 framework
+- Feathers: uses the [Feathers][1] v2.x framework
 - RESTful: uses Feathers' [RESTful][2] features which dynamically create an API
 - Secure: uses Feathers' [local][3] and [JWT][4] authentication mechanisms
 - Database: uses Feathers' integration with [Sequelize][5], a promise-based ORM for 
