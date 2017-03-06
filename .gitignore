@@ -28,4 +28,8 @@ node_modules
 .lock-wscript
 
 lib/
-data/
+data/*.sqlite
+
+# editor configuration
+.vscode/launch.json
+.editorconfig
