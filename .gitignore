@@ -31,5 +31,5 @@ lib/
 data/*.sqlite
 
 # editor configuration
-.vscode/launch.json
+.vscode
 .editorconfig
