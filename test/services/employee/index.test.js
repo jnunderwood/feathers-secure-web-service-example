@@ -5,8 +5,8 @@ const app = require('../../../src/app');
 
 describe('Employee service', function () {
 
-  it('registered the employees service', function (done) {
-    assert.ok(app.service('employees'));
+  it('registered the employee service', function (done) {
+    assert.ok(app.service('/api/v1/employee'));
     done();
   });
 

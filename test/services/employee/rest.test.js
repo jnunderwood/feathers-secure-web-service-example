@@ -10,18 +10,14 @@ const should = chai.should();
 const expect = chai.expect;
 const assert = chai.assert;
 
-const Employee = app.service('/employees');
-const User = app.service('/users');
 const adminCredentials = { 'username': 'admin', 'password': 'admin' };
-
 var token;
 
 describe('Employee restful service', function () {
   // this.timeout(5000);
 
   function requestToken(done) {
-    request({
-      method: 'POST',
+    request.post({
       url: 'http://localhost:3030/authentication',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(adminCredentials)
@@ -52,9 +48,9 @@ describe('Employee restful service', function () {
   });
 
   it('should GET 5 employees', function (done) {
-    request({
-      url: 'http://localhost:3030/employees',
-      headers: { 'Authorization': 'Bearer ' + token },
+    request.get({
+      url: 'http://localhost:3030/api/v1/employee',
+      auth: { 'bearer': token },
     },
     function (error, response, body) {
       let data = JSON.parse(body).data;
@@ -65,10 +61,10 @@ describe('Employee restful service', function () {
     });
   });
 
-  it('should GET 1 employee by EID', function (done) {
-    request({
-      url: 'http://localhost:3030/employees/1',
-      headers: { 'Authorization': 'Bearer ' + token },
+  it('should GET 1 employee by ID', function (done) {
+    request.get({
+      url: 'http://localhost:3030/api/v1/employee/1',
+      auth: { 'bearer': token },
     },
     function (error, response, b) {
       let body = JSON.parse(b);
@@ -81,9 +77,9 @@ describe('Employee restful service', function () {
   });
 
   it('should GET 2 employees by last name', function (done) {
-    request({
-      url: 'http://localhost:3030/employees?lastName=Crosby',
-      headers: { 'Authorization': 'Bearer ' + token },
+    request.get({
+      url: 'http://localhost:3030/api/v1/employee?lastName=Crosby',
+      auth: { 'bearer': token },
     },
     function (error, response, body) {
       let data = JSON.parse(body).data;
@@ -92,6 +88,22 @@ describe('Employee restful service', function () {
       data.length.should.equal(2);
       data.should.have.deep.property('[0].lastName', 'Crosby');
       data.should.have.deep.property('[1].lastName', 'Crosby');
+      done();
+    });
+  });
+
+  it('should GET 2 employees like last name', function (done) {
+    request.get({
+      url: 'http://localhost:3030/api/v1/employee?lastName[$like]=Wi%',
+      auth: { 'bearer': token },
+    },
+    function (error, response, body) {
+      let data = JSON.parse(body).data;
+      response.statusCode.should.equal(200);
+      data.should.be.an('array');
+      data.length.should.equal(2);
+      data.should.have.deep.property('[0].lastName', 'Wilcox');
+      data.should.have.deep.property('[1].lastName', 'William');
       done();
     });
   });
