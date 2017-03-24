@@ -8,7 +8,7 @@ const employeeData  = require('../data/employeeData.json');
 const userData = require('../data/userData.json');
 
 const sequelize = app.get('sequelize');
-const Employee = app.service('/employees');
+const Employee = app.service('/api/v1/employee');
 const User = app.service('/users');
 
 function loadData() {
@@ -23,20 +23,22 @@ function loadData() {
 }
 
 /**
- * returns a promise; will initialize the database and load
- * data when the node environment is 'development' or 'test'.
+ * Initializes the database and loads data when the
+ * node environment is 'development' or 'test'.
+ *
+ * @returns a Promise
  */
-var init = function() {
+function init() {
   app.logger.info(`Initializing ${env} environment`);
   if (env === 'development' || env === 'test') {
     return loadData();
   }
   return Promise.resolve();
-};
+}
 
-var destroy = function() {
+function destroy() {
   app.logger.info(`Destroying ${env} environment`);
-};
+}
 
 module.exports = {
   init: init,
