@@ -1,7 +1,7 @@
 {
   "name": "employees",
   "description": "",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "",
   "main": "src/",
   "keywords": [
@@ -25,22 +25,22 @@
     "mocha": "mocha test/ --recursive"
   },
   "dependencies": {
-    "body-parser": "^1.17.0",
+    "body-parser": "^1.17.1",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
     "feathers": "^2.1.1",
-    "feathers-authentication": "^1.0.2",
+    "feathers-authentication": "^1.1.1",
     "feathers-authentication-jwt": "^0.3.1",
     "feathers-authentication-local": "^0.3.3",
     "feathers-configuration": "^0.4.1",
-    "feathers-errors": "^2.5.0",
+    "feathers-errors": "^2.6.2",
     "feathers-hooks": "^1.8.1",
     "feathers-memory": "^1.1.0",
     "feathers-permissions": "^0.1.1",
     "feathers-rest": "^1.7.1",
-    "feathers-sequelize": "^1.4.0",
+    "feathers-sequelize": "^1.4.3",
     "feathers-socketio": "^1.5.2",
-    "fs-extra": "^2.0.0",
+    "fs-extra": "^2.1.2",
     "passport": "^0.3.2",
     "sequelize": "^3.30.2",
     "serve-favicon": "^2.4.1",
@@ -51,7 +51,7 @@
     "chai": "^3.5.0",
     "jshint": "^2.9.4",
     "mocha": "^3.2.0",
-    "request": "^2.79.0",
+    "request": "^2.81.0",
     "request-debug": "^0.2.0"
   }
 }
